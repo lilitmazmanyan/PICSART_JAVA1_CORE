@@ -19,7 +19,7 @@ public class PlaneService {
         Result: return the plane which one is newer (if they have the same age return first one).
      */
     public static Plane getNewerPlane(Plane p1, Plane p2) {
-        return p1.getYear() <= p2.getYear() ? p1 : p2;
+        return p1.getYear() >= p2.getYear() ? p1 : p2;
     }
 
     /*

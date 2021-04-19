@@ -9,6 +9,21 @@ public class Plane {
     private int seats; // - number of seats (any not negative value)
     private float cost; // - cost of the plane (ex: 445.6$) (any not negative value)
 
+    public Plane() {
+    }
+
+    public Plane(String model, String country, int year, int hours, boolean military, int weight, short topSpeed, int seats, float cost) {
+        this.model = model;
+        this.country = country;
+        this.year = year;
+        this.hours = hours;
+        this.military = military;
+        this.weight = weight;
+        this.topSpeed = topSpeed;
+        this.seats = seats;
+        this.cost = cost;
+    }
+
     public void setModel(String model) {
         if (model != null && model.length() > 0) {
             this.model = model;
@@ -59,17 +74,6 @@ public class Plane {
         }
     }
 
-    public Plane(String model, String country, int year, int hours, boolean military, int weight, short topSpeed, int seats, float cost) {
-        this.model = model;
-        this.country = country;
-        this.year = year;
-        this.hours = hours;
-        this.military = military;
-        this.weight = weight;
-        this.topSpeed = topSpeed;
-        this.seats = seats;
-        this.cost = cost;
-    }
 
     public void setCost(float cost) {
         if (cost >= 0) {
