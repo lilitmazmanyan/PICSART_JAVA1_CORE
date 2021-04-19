@@ -28,18 +28,13 @@ public class PlaneService {
         Result: print country of the plane with smallest seats count (if they have the same - print first).
     */
     void getSmallestPlanesCountry(Plane p1, Plane p2, Plane p3) {
-        if (p1.getSeats() == p2.getSeats() && p2.getSeats() == p3.getSeats()) {
-            p1.printInfo();
-        }
         if (p1.getSeats() <= p2.getSeats()) {
-            if (p1.getSeats() < p3.getSeats()) {
+            if (p1.getSeats() <= p3.getSeats()) {
                 System.out.println(p1.getCountry());
             } else System.out.println(p3.getCountry());
-        } else if (p1.getSeats() < p3.getSeats()) {
-
-        } else if (p2.getSeats() < p3.getSeats()) {
-
-        }
+        } else if (p2.getSeats() <= p3.getSeats()) {
+            System.out.println(p2.getCountry());
+        } else System.out.println(p3.getCountry());
     }
 
 
