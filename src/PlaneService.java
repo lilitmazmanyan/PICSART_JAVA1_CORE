@@ -28,11 +28,16 @@ public class PlaneService {
         Result: print country of the plane with smallest seats count (if they have the same - print first).
     */
     void getSmallestPlanesCountry(Plane p1, Plane p2, Plane p3) {
-        if (p1.getSeats() < p2.getSeats()) {
+        if (p1.getSeats() == p2.getSeats() && p2.getSeats() == p3.getSeats()) {
+            p1.printInfo();
+        }
+        if (p1.getSeats() <= p2.getSeats()) {
             if (p1.getSeats() < p3.getSeats()) {
                 System.out.println(p1.getCountry());
             } else System.out.println(p3.getCountry());
         } else if (p1.getSeats() < p3.getSeats()) {
+
+        } else if (p2.getSeats() < p3.getSeats()) {
 
         }
     }
@@ -46,10 +51,9 @@ public class PlaneService {
      */
     void printNonMilitaryPlanes(Plane[] planes) {
         for (Plane p : planes) {
-            if (p.isMilitary()) {
+            if (!p.isMilitary()) {
                 p.printInfo();
             }
-            ;
         }
     }
 
@@ -64,7 +68,6 @@ public class PlaneService {
             if (p.isMilitary() && p.getHours() > 100) {
                 p.printInfo();
             }
-            ;
         }
     }
 
@@ -91,13 +94,22 @@ public class PlaneService {
         Result: return the plane with minimal cost from all military planes (if there are some of them return first one).
      */
     Plane getTheOneWithAMinimalCost(Plane[] planes) {
-        Plane p = planes[planes.length - 1];
-        for (Plane plane : planes) {
-            if (plane.isMilitary() && plane.getCost() < p.getCost()) {
-                p = plane;
+        int index = -1;
+        for (int i = planes.length - 1; i >= 0; i--) {
+            if (planes[i].isMilitary()) {
+                index = i;
+                break;
             }
         }
-        return p.isMilitary() ? p : null;
+        if (index == -1)
+            return null;
+        Plane p = null;
+        for (int i = index - 1; i >= 0; i--) {
+            if (planes[i].isMilitary() && planes[index].getCost() > planes[i].getCost()) {
+                p = planes[i];
+            }
+        }
+        return p;
     }
 
     /*
