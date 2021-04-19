@@ -1,8 +1,9 @@
+import javax.print.attribute.standard.PrinterName;
 import java.util.Scanner;
 
 public class AirportTest {
     public static void main(String[] args) {
-        Scanner s = new Scanner(System.in);
+      /*  Scanner s = new Scanner(System.in);
         Plane p = new Plane();
 
         System.out.println("Please enter plane model");
@@ -24,6 +25,20 @@ public class AirportTest {
         System.out.println("Please enter plane cost");
         p.setCost(s.nextFloat());
 
-        p.printInfo();
+        p.printInfo();*/
+        Plane p1 = new Plane("SU-300", "Armenia", 2010, 200, true, 450, (short) 200, 150, 150);
+        Plane p2 = new Plane("MK-190", "USA", 1990, 30, false, 130, (short) 160, 300, 160);
+        Plane p3 = new Plane("LM-228", "Armenia", 2000, 60, false, 370, (short) 180, 250, 190);
+
+        Plane[] planes = {p1, p2, p3};
+
+        PlaneService.Task1(p1);
+        PlaneService.getNewerPlane(p2, p3);
+        PlaneService.getSmallestPlanesCountry(p1, p2, p3);
+        PlaneService.printNonMilitaryPlanes(planes);
+        PlaneService.printNonMilitaryPlanesWithMoreThan100HoursFlight(planes);
+        PlaneService.getLightestPlane(planes);
+        PlaneService.getTheOneWithAMinimalCost(planes);
+        PlaneService.printPlanesByYearAsc(planes);
     }
 }

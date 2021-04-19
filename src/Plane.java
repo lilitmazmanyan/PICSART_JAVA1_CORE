@@ -59,6 +59,18 @@ public class Plane {
         }
     }
 
+    public Plane(String model, String country, int year, int hours, boolean military, int weight, short topSpeed, int seats, float cost) {
+        this.model = model;
+        this.country = country;
+        this.year = year;
+        this.hours = hours;
+        this.military = military;
+        this.weight = weight;
+        this.topSpeed = topSpeed;
+        this.seats = seats;
+        this.cost = cost;
+    }
+
     public void setCost(float cost) {
         if (cost >= 0) {
             this.cost = cost;
