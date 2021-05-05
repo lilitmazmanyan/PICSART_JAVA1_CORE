@@ -1,6 +1,6 @@
 package Homework5;
 
-public class Functionality {
+public class SweetsService {
 
     static int getWeightOfPresent(PresentBoxes p) {
 //    static int getWeightOfPresent(PresentBoxes p) throws EmptyPresentException {

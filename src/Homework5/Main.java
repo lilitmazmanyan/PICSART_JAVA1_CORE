@@ -18,11 +18,13 @@ public class Main {
         IceCream iceCream3 = new IceCream(60, 1, 80);
         iceCream3.setCompany("Grand Candy");
 
-        Candies candy1 = new ChocolateBars(500, 9, 30);
+        ChocolateBars candy1 = new ChocolateBars(500, 9, 30);
         candy1.setChocolate(true);
-        Candies candy2 = new ChocolateBars(600, 8, 25);
+        ChocolateBars candy2 = new ChocolateBars(600, 8, 25);
         candy2.setChocolate(false);
+        candy2.setFilling("Vanila");
         Candies candy3 = new ChocolateBars(900, 3, 25);
+        //Cannot add a filling in third candy because it is a type of candy
 
         PresentBoxes present1 = new PresentBoxes(new ArrayList<>() {{
             add(cookie1);
