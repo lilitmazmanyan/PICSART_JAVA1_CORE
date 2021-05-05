@@ -18,11 +18,11 @@ public class Main {
         IceCream iceCream3 = new IceCream(60, 1, 80);
         iceCream3.setCompany("Grand Candy");
 
-        Candies candy1 = new Candies(500, 9, 30);
+        Candies candy1 = new ChocolateBars(500, 9, 30);
         candy1.setChocolate(true);
-        Candies candy2 = new Candies(600, 8, 25);
+        Candies candy2 = new ChocolateBars(600, 8, 25);
         candy2.setChocolate(false);
-        Candies candy3 = new Candies(900, 3, 25);
+        Candies candy3 = new ChocolateBars(900, 3, 25);
 
         PresentBoxes present1 = new PresentBoxes(new ArrayList<>() {{
             add(cookie1);
@@ -42,26 +42,26 @@ public class Main {
         }});
 
         System.out.printf("Present 1\n\tPrice: %f\n\tWeigth: %d\n",
-                Functionality.calculateThePrice(present1),
-                Functionality.getWeightOfPresent(present1));
+                SweetsService.calculateThePrice(present1),
+                SweetsService.getWeightOfPresent(present1));
         System.out.printf("Life on the shelf of Present1 is %s months",
-                Functionality.lifeOnShelf(present1));
+                SweetsService.lifeOnShelf(present1));
 
         System.out.println("\n---------------------------------------------");
 
         System.out.printf("Present 2\n\tPrice: %f\n\tWeigth: %d\n",
-                Functionality.calculateThePrice(present2),
-                Functionality.getWeightOfPresent(present2));
+                SweetsService.calculateThePrice(present2),
+                SweetsService.getWeightOfPresent(present2));
         System.out.printf("Life on the shelf of Present2 is %s months",
-                Functionality.lifeOnShelf(present2));
+                SweetsService.lifeOnShelf(present2));
 
         System.out.println("\n---------------------------------------------");
 
         System.out.printf("Present 3\n\tPrice: %f\n\tWeigth: %d\n",
-                Functionality.calculateThePrice(present3),
-                Functionality.getWeightOfPresent(present3));
+                SweetsService.calculateThePrice(present3),
+                SweetsService.getWeightOfPresent(present3));
         System.out.printf("Life on the shelf of Present3 is %s months",
-                Functionality.lifeOnShelf(present3));
+                SweetsService.lifeOnShelf(present3));
 
     }
 

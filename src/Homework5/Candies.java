@@ -1,6 +1,6 @@
 package Homework5;
 
-public class Candies extends Sweets {
+public abstract class Candies extends Sweets {
     boolean isChocolate;
 
     public Candies(int price, int shelfLifeInMonths, int weightOfUnit) {
