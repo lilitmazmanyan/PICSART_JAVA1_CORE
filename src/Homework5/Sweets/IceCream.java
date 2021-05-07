@@ -1,12 +1,16 @@
-package Homework5;
+package Homework5.Sweets;
+
+import Homework5.Melting;
+
+import java.time.LocalDate;
 
 public class IceCream extends Sweets implements Melting {
-    String type;
-    String filling;
-    int temperature;
+    private String type;
+    private String filling;
+    private int temperature;
 
-    public IceCream(int price, int shelfLifeInMonths, int weightOfUnit) {
-        super(price, shelfLifeInMonths, weightOfUnit);
+    public IceCream(int price, LocalDate dateOfIssue, int shelfLifeInMonths, int weightOfUnit) {
+        super(price, dateOfIssue, shelfLifeInMonths, weightOfUnit);
     }
 
     public String getType() {
@@ -40,6 +44,6 @@ public class IceCream extends Sweets implements Melting {
 
     @Override
     public void melt() {
-        System.out.println(temperature >= 4 ? "Already melted":"Still cool and tasty!");
+        System.out.println(temperature >= 4 ? "Already melted" : "Still cool and tasty!");
     }
 }

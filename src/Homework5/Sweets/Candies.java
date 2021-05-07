@@ -1,10 +1,12 @@
-package Homework5;
+package Homework5.Sweets;
+
+import java.time.LocalDate;
 
 public abstract class Candies extends Sweets {
-    boolean isChocolate;
+    private boolean isChocolate;
 
-    public Candies(int price, int shelfLifeInMonths, int weightOfUnit) {
-        super(price, shelfLifeInMonths, weightOfUnit);
+    public Candies(int price, LocalDate dateOfIssue, int shelfLifeInMonths, int weightOfUnit) {
+        super(price, dateOfIssue, shelfLifeInMonths, weightOfUnit);
     }
 
     public boolean isChocolate() {

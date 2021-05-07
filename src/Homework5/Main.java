@@ -1,70 +1,64 @@
 package Homework5;
 
-import java.util.ArrayList;
+import Homework5.Sweets.Candies;
+import Homework5.Sweets.ChocolateBars;
+import Homework5.Sweets.Cookies;
+import Homework5.Sweets.IceCream;
+
+import java.time.LocalDate;
+import java.util.Arrays;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        Cookies cookie1 = new Cookies(300, 1, 10);
+        LocalDate randomDateOfIssue = LocalDate.of(2019, 8, 9);
+        Cookies cookie1 = new Cookies(280, randomDateOfIssue, 1, 10);
         cookie1.setShape("round");
-        Cookies cookie2 = new Cookies(250, 2, 15);
+        Cookies cookie2 = new Cookies(250, randomDateOfIssue, 2, 15);
         cookie2.setShape("square");
-        Cookies cookie3 = new Cookies(350, 3, 20);
+        Cookies cookie3 = new Cookies(350, randomDateOfIssue, 3, 20);
 
-        IceCream iceCream1 = new IceCream(50, 1, 60);
-        IceCream iceCream2 = new IceCream(60, 3, 50);
+        IceCream iceCream1 = new IceCream(50, randomDateOfIssue, 1, 60);
+        IceCream iceCream2 = new IceCream(60, randomDateOfIssue, 3, 50);
         iceCream2.setCompany("Shant");
-        IceCream iceCream3 = new IceCream(60, 1, 80);
+        IceCream iceCream3 = new IceCream(60, randomDateOfIssue, 1, 80);
         iceCream3.setCompany("Grand Candy");
 
-        ChocolateBars candy1 = new ChocolateBars(500, 9, 30);
+        ChocolateBars candy1 = new ChocolateBars(500, randomDateOfIssue, 9, 30);
         candy1.setChocolate(true);
-        ChocolateBars candy2 = new ChocolateBars(600, 8, 25);
+        ChocolateBars candy2 = new ChocolateBars(600, randomDateOfIssue, 8, 25);
         candy2.setChocolate(false);
         candy2.setFilling("Vanila");
-        Candies candy3 = new ChocolateBars(900, 3, 25);
-        //Cannot add a filling in third candy because it is a type of candy
+        Candies candy3 = new ChocolateBars(900, randomDateOfIssue, 3, 25);
+        //Cannot add a filling in third candy because it is a type of candy and not chocolate bar
 
-        PresentBoxes present1 = new PresentBoxes(new ArrayList<>() {{
-            add(cookie1);
-            add(iceCream1);
-            add(candy1);
-        }});
+        PresentBoxes present1 = new PresentBoxes(Arrays.asList(cookie1, candy2, iceCream1));
+        PresentBoxes present2 = new PresentBoxes(Arrays.asList(cookie2, candy2, iceCream2));
+        PresentBoxes present3 = new PresentBoxes(Arrays.asList(cookie3, candy3, iceCream3));
 
-        PresentBoxes present2 = new PresentBoxes(new ArrayList<>() {{
-            add(cookie2);
-            add(candy2);
-            add(iceCream2);
-        }});
-        PresentBoxes present3 = new PresentBoxes(new ArrayList<>() {{
-            add(cookie3);
-            add(iceCream3);
-            add(candy3);
-        }});
 
         System.out.printf("Present 1\n\tPrice: %f\n\tWeigth: %d\n",
-                SweetsService.calculateThePrice(present1),
-                SweetsService.getWeightOfPresent(present1));
+                PresentBoxesService.calculateThePrice(present1),
+                PresentBoxesService.getWeightOfPresent(present1));
         System.out.printf("Life on the shelf of Present1 is %s months",
-                SweetsService.lifeOnShelf(present1));
+                PresentBoxesService.lifeOnShelf(present1));
 
         System.out.println("\n---------------------------------------------");
 
         System.out.printf("Present 2\n\tPrice: %f\n\tWeigth: %d\n",
-                SweetsService.calculateThePrice(present2),
-                SweetsService.getWeightOfPresent(present2));
+                PresentBoxesService.calculateThePrice(present2),
+                PresentBoxesService.getWeightOfPresent(present2));
         System.out.printf("Life on the shelf of Present2 is %s months",
-                SweetsService.lifeOnShelf(present2));
+                PresentBoxesService.lifeOnShelf(present2));
 
         System.out.println("\n---------------------------------------------");
 
         System.out.printf("Present 3\n\tPrice: %f\n\tWeigth: %d\n",
-                SweetsService.calculateThePrice(present3),
-                SweetsService.getWeightOfPresent(present3));
+                PresentBoxesService.calculateThePrice(present3),
+                PresentBoxesService.getWeightOfPresent(present3));
         System.out.printf("Life on the shelf of Present3 is %s months",
-                SweetsService.lifeOnShelf(present3));
-
+                PresentBoxesService.lifeOnShelf(present3));
     }
 
 }
