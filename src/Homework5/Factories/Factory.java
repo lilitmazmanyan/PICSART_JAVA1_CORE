@@ -2,12 +2,17 @@ package Homework5.Factories;
 
 import Homework5.CustomExceptions.InvalidInputException;
 
-public abstract class Factory {
+public abstract class Factory implements Comparable<Factory> {
     private int foundedId;
     private String address;
     private boolean hasDelivery;
     private String phoneNumber;
     private int numberOfEmployees;
+
+    @Override
+    public int compareTo(Factory o) {
+        return this.foundedId - o.foundedId;
+    }
 
     public Factory(String address, String phoneNumber) {
         setAddress(address);
@@ -30,7 +35,7 @@ public abstract class Factory {
     }
 
     private Factory setPhoneNumber(String phoneNumber) {
-        if (phoneNumber.matches("^[0-9]")) {
+        if (phoneNumber.matches("^[0-9]{6}")) {
             this.phoneNumber = phoneNumber;
             return this;
         } else throw new InvalidInputException("phone number");
@@ -59,5 +64,12 @@ public abstract class Factory {
 
     public int getNumberOfEmployees() {
         return numberOfEmployees;
+    }
+
+    @Override
+    public String toString() {
+        if (this.getClass() != null)
+            return this.getClass().getName().split("\\.")[2];
+        return "";
     }
 }

@@ -1,6 +1,7 @@
-package Homework5;
+package Homework5.Helpers;
 
 import Homework5.CustomExceptions.EmptyPresentException;
+import Homework5.PresentBoxes;
 import Homework5.Sweets.IceCream;
 import Homework5.Sweets.Sweet;
 
@@ -9,7 +10,7 @@ import java.util.Iterator;
 
 public class PresentBoxesService {
 
-    static int getWeightOfPresent(PresentBoxes p) {
+    public static int getWeightOfPresent(PresentBoxes p) {
         if (p == null || p.getPresent() == null) {
             throw new EmptyPresentException();
         }
@@ -21,7 +22,7 @@ public class PresentBoxesService {
         return weight;
     }
 
-    static double calculateThePrice(PresentBoxes p) {
+    public static double calculateThePrice(PresentBoxes p) {
         if (p == null || p.getPresent() == null || p.getPresent().size() == 0) {
             throw new EmptyPresentException();
         }
@@ -35,7 +36,7 @@ public class PresentBoxesService {
         return (Math.ceil((sum + 300) / 100)) * 100;
     }
 
-    static int lifeOnShelf(PresentBoxes p) {
+    public static int lifeOnShelf(PresentBoxes p) {
         if (p == null || p.getPresent() == null || p.getPresent().size() == 0) {
             throw new EmptyPresentException();
         }

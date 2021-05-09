@@ -1,5 +1,10 @@
 package Homework5;
 
+import Homework5.Factories.Ferrero;
+import Homework5.Factories.GrandCandy;
+import Homework5.Factories.Mars;
+import Homework5.Helpers.FactoriesService;
+import Homework5.Helpers.PresentBoxesService;
 import Homework5.Sweets.Candy;
 import Homework5.Sweets.ChocolateBar;
 import Homework5.Sweets.Cookie;
@@ -11,7 +16,10 @@ import java.util.Arrays;
 public class Main {
 
     public static void main(String[] args) {
+        geghecik();
+    }
 
+    public static void geghecik() {
         LocalDate randomDateOfIssue = LocalDate.of(2019, 8, 9);
         Cookie cookie1 = new Cookie(280, randomDateOfIssue, 1, 10);
         cookie1.setShape("round");
@@ -31,12 +39,11 @@ public class Main {
         candy2.setChocolate(false);
         candy2.setFilling("Vanila");
         Candy candy3 = new ChocolateBar(900, randomDateOfIssue, 3, 25);
-        //Cannot add a filling in third candy because it is a type of candy and not chocolate bar
+        //Cannot add a filling in third candy because it is an instance of candy and not chocolate bar
 
         PresentBoxes present1 = new PresentBoxes(Arrays.asList(cookie1, candy2, iceCream1));
         PresentBoxes present2 = new PresentBoxes(Arrays.asList(cookie2, candy2, iceCream2));
         PresentBoxes present3 = new PresentBoxes(Arrays.asList(cookie3, candy3, iceCream3));
-
 
         System.out.printf("Present 1\n\tPrice: %f\n\tWeigth: %d\n",
                 PresentBoxesService.calculateThePrice(present1),
@@ -59,7 +66,16 @@ public class Main {
                 PresentBoxesService.getWeightOfPresent(present3));
         System.out.printf("Life on the shelf of Present3 is %s months",
                 PresentBoxesService.lifeOnShelf(present3));
-    }
 
+        System.out.println("\n---------------------------------------------");
+
+        System.out.println("Initial factories list is: " + FactoriesService.getAllFactoriesList());
+        GrandCandy.getInstance();
+        Ferrero.getInstance();
+        Mars.getInstance();
+        System.out.println("After initializing all factories, the list is: " + FactoriesService.getAllFactoriesList());
+        System.out.println(FactoriesService.getOldestFactory());
+        System.out.println(FactoriesService.getFactoryWithMostNUmberOfEmpl());
+    }
 }
 
