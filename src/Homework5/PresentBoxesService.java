@@ -2,7 +2,7 @@ package Homework5;
 
 import Homework5.CustomExceptions.EmptyPresentException;
 import Homework5.Sweets.IceCream;
-import Homework5.Sweets.Sweets;
+import Homework5.Sweets.Sweet;
 
 import java.time.LocalDate;
 import java.util.Iterator;
@@ -15,7 +15,7 @@ public class PresentBoxesService {
         }
         if (p.getPresent().size() == 0) return 0;
         int weight = 0;
-        for (Sweets s : p.getPresent()) {
+        for (Sweet s : p.getPresent()) {
             weight += s.getWeightOfUnit();
         }
         return weight;
@@ -26,7 +26,7 @@ public class PresentBoxesService {
             throw new EmptyPresentException();
         }
         float sum = 0;
-        Iterator<Sweets> it = p.getPresent().iterator();
+        Iterator<Sweet> it = p.getPresent().iterator();
         while (it.hasNext()) {
             if (!(it.next() instanceof IceCream)) {
                 sum += (float) it.next().getPrice() / it.next().getWeightOfUnit();
@@ -40,7 +40,7 @@ public class PresentBoxesService {
             throw new EmptyPresentException();
         }
         int onShelf = p.getPresent().get(0).getShelfLifeInMonths();
-        for (Sweets s : p.getPresent()) {
+        for (Sweet s : p.getPresent()) {
             if (s.getShelfLifeInMonths() < onShelf) {
                 onShelf = s.getShelfLifeInMonths();
             }
@@ -50,7 +50,7 @@ public class PresentBoxesService {
 
     public static LocalDate calculateExpirationDate(PresentBoxes p) {
         LocalDate max = LocalDate.MAX;
-        for (Sweets s : p.getPresent()) {
+        for (Sweet s : p.getPresent()) {
             if (s.calculateExpirationDate().compareTo(max) < 0) {
                 max = s.calculateExpirationDate();
             }

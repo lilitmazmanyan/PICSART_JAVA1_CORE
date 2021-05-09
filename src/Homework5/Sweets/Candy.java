@@ -2,10 +2,10 @@ package Homework5.Sweets;
 
 import java.time.LocalDate;
 
-public abstract class Candies extends Sweets {
+public abstract class Candy extends Sweet {
     private boolean isChocolate;
 
-    public Candies(int price, LocalDate dateOfIssue, int shelfLifeInMonths, int weightOfUnit) {
+    public Candy(int price, LocalDate dateOfIssue, int shelfLifeInMonths, int weightOfUnit) {
         super(price, dateOfIssue, shelfLifeInMonths, weightOfUnit);
     }
 

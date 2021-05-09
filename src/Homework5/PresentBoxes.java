@@ -1,19 +1,19 @@
 package Homework5;
 
-import Homework5.Sweets.Sweets;
+import Homework5.Sweets.Sweet;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class PresentBoxes implements Wrapable {
 
-    private ArrayList<Sweets> present;
+    private ArrayList<Sweet> present;
 
-    public PresentBoxes(List<Sweets> presents) {
+    public PresentBoxes(List<Sweet> presents) {
         this.present = new ArrayList<>(presents);
     }
 
-    public ArrayList<Sweets> getPresent() {
+    public ArrayList<Sweet> getPresent() {
         return present;
     }
 

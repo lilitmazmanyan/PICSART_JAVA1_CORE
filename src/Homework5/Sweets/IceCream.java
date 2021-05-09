@@ -4,7 +4,7 @@ import Homework5.Melting;
 
 import java.time.LocalDate;
 
-public class IceCream extends Sweets implements Melting {
+public class IceCream extends Sweet implements Melting {
     private String type;
     private String filling;
     private int temperature;

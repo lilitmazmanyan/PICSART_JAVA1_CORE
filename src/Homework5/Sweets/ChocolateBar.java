@@ -2,10 +2,10 @@ package Homework5.Sweets;
 
 import java.time.LocalDate;
 
-public class ChocolateBars extends Candies {
+public class ChocolateBar extends Candy {
     private String filling;
 
-    public ChocolateBars(int price, LocalDate dateOfIssue,int shelfLifeInMonths, int weightOfUnit) {
+    public ChocolateBar(int price, LocalDate dateOfIssue, int shelfLifeInMonths, int weightOfUnit) {
         super(price, dateOfIssue, shelfLifeInMonths, weightOfUnit);
     }
 

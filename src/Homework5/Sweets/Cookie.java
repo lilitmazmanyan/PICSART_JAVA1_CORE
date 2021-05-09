@@ -2,10 +2,10 @@ package Homework5.Sweets;
 
 import java.time.LocalDate;
 
-public class Cookies extends Sweets {
+public class Cookie extends Sweet {
     private String shape;
 
-    public Cookies(int price, LocalDate dateOfIssue, int shelfLifeInMonths, int weightOfUnit) {
+    public Cookie(int price, LocalDate dateOfIssue, int shelfLifeInMonths, int weightOfUnit) {
         super(price, dateOfIssue, shelfLifeInMonths, weightOfUnit);
     }
 
